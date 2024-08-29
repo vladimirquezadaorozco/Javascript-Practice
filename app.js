@@ -1,16 +1,21 @@
 //Access to Input Field
-let productNameInputElement = document.getElementById('product-name')
-let maxAllowedChars = productNameInputElement.maxLength
+const productNameInputElement = document.getElementById('product-name')
+const maxAllowedChars = productNameInputElement.maxLength
 
-let remainingChars = document.getElementById('remaining-chars')
+const remainingChars = document.getElementById('remaining-chars')
 
 
 
 function updateRemainingChars(event) {
-    let enteredTextLength = event.target.value.length
-    let remainingCharacters = maxAllowedChars - enteredTextLength
+    const enteredTextLength = event.target.value.length
+    const remainingCharacters = maxAllowedChars - enteredTextLength
 
     remainingChars.textContent = remainingCharacters
+    if (remainingCharacters <= 10) {
+        productNameInputElement.style.backgroundColor = 'red'
+    } else {
+        productNameInputElement.style.backgroundColor = 'rgb(252, 249, 233)'
+    }
 }
 
 productNameInputElement.addEventListener('input', updateRemainingChars)
