@@ -11,10 +11,18 @@ function updateRemainingChars(event) {
     const remainingCharacters = maxAllowedChars - enteredTextLength
 
     remainingChars.textContent = remainingCharacters
-    if (remainingCharacters <= 10) {
-        productNameInputElement.style.backgroundColor = 'red'
+    if (remainingCharacters === 0) {
+        remainingChars.classList.add('error')
+        productNameInputElement.classList.add('error')
+    } else if (remainingCharacters <= 10) {
+        remainingChars.classList.remove('error')
+        productNameInputElement.classList.remove('error')
+        remainingChars.classList.add('warning')
+        productNameInputElement.classList.add('warning')
     } else {
-        productNameInputElement.style.backgroundColor = 'rgb(252, 249, 233)'
+        remainingChars.classList.remove('warning')
+        productNameInputElement.classList.remove('warning')
+
     }
 }
 
