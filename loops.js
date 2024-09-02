@@ -26,4 +26,10 @@ for (const key in loggedInUser) {
 }
 
 // while loop
-//
+// while the condition is not false
+// the code will always run
+let isFinished = false
+while (!isFinished) {
+    isFinished = confirm('Do you want to quit')
+}
+console.log('Done')
